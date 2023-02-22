@@ -1,0 +1,25 @@
+---
+import BirdInfo from "../../components/BirdInfo.astro";
+import Site from "../../layouts/Site.astro";
+
+export async function getStaticPaths() {
+    const response = await fetch("https://aves.ninjas.cl/api/birds");
+    const data = await response.json();
+    return(
+        data.map(elem => ( 
+            {
+                params:{bird:elem.uid}, 
+                props:{name:elem.name.spanish, img:elem.images.main, url:elem._links.self}
+            }
+        ))
+    ) 
+}
+
+const { bird } = Astro.params;
+const { name, img, url} = Astro.props;
+---
+<Site title={name}>
+    <h1>pagina pajaro {name}</h1>
+    <img src={img} alt="">
+    <BirdInfo url={url}></BirdInfo>
+</Site>
