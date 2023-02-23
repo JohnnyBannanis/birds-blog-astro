@@ -1,5 +1,7 @@
 ---
 import BirdInfo from "../../components/BirdInfo.astro";
+import Hero from "../../components/Hero.astro";
+import Navbar from "../../components/Navbar.astro";
 import Site from "../../layouts/Site.astro";
 
 export async function getStaticPaths() {
@@ -19,7 +21,10 @@ const { bird } = Astro.params;
 const { name, img, url} = Astro.props;
 ---
 <Site title={name}>
-    <h1>pagina pajaro {name}</h1>
-    <img src={img} alt="">
-    <BirdInfo url={url}></BirdInfo>
+    <Navbar></Navbar>
+    <Hero>
+        <h1>pagina pajaro {name}</h1>
+        <img src={img} alt="">
+        <BirdInfo url={url}></BirdInfo>
+    </Hero>
 </Site>

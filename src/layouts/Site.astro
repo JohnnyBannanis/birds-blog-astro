@@ -14,7 +14,11 @@ const {title = "Birds Blog"} = Astro.props;
     <link rel="icon" type="image/x-icon" href="/favicon.svg">
     <title>{title}</title>
 </head>
-<body>
-    <slot/> <!-- content injection -->
+<body class="bg-zinc-900">
+    <div class="flex flex-col h-screen">
+        <slot/> <!-- content injection -->
+        <div class="mt-4">	
+		</div>
+    </div>
 </body>
 </html>

@@ -1,4 +1,6 @@
 ---
+import Hero from "../components/Hero.astro";
+import Navbar from "../components/Navbar.astro";
 import Site from "../layouts/Site.astro";
 
 //astro top-level await
@@ -6,11 +8,14 @@ const response = await fetch("https://aves.ninjas.cl/api/birds");
 const data = await response.json();
 ---
 <Site title="Bird Blog | Birds">
-    {data.map(bird => 
-
+        <Navbar></Navbar>
+        <Hero>
+            {data.map(bird => 
         <a href={"/info/".concat(bird.uid)}>
-            <h1>{bird.name.spanish}</h1>
-        </a>
-        
-    )}
+            <h1 class="text-slate-400 text-xl">{bird.name.spanish}</h1>
+            </a>
+            
+            )}
+    </Hero>
+
 </Site>
