@@ -23,7 +23,7 @@ const { name, img, url} = Astro.props;
 <Site title={name}>
     <div class="flex flex-col h-screen">
 
-        <Navbar></Navbar>
+        <Navbar current="birds"></Navbar>
         <Hero>
             <h1>pagina pajaro {name}</h1>
             <img src={img} alt="">
