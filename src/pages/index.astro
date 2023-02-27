@@ -2,15 +2,14 @@
 import Site from "../layouts/Site.astro";
 import Navbar from "../components/Navbar.astro";
 import Hero from "../components/Hero.astro";
+import Landing from "../components/Landing.astro";
 ---
 
 <Site title="Birds Blog | Home">
 	<div class="flex flex-col h-screen">
 		<Navbar></Navbar>
 		<Hero>
-			<h1 class="text-5xl">Landing Page</h1>
-			<a href="/birds"> know the Birds</a>
-			<button class="btn btn-secondary">Button</button>
+			<Landing></Landing>
 		</Hero>
     </div>
 </Site>
