@@ -12,20 +12,22 @@ const data = await response.json();
 <Site title="Bird Blog | Birds">
     <Navbar current="birds" />
     <Hero>
-        <section class="m-4 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-4  place-items-stretch" >
+        <section
+            class="m-4 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 place-items-stretch"
+        >
             {
                 data.map((bird) => (
                     <div class="col-span-1">
                         <Card
-                        english={bird.name.english}
-                        img={bird.images.main}
-                        latin={bird.name.latin}
-                        spanish={bird.name.spanish}
-                        url={"/info/".concat(bird.uid)}
+                            english={bird.name.english}
+                            img={bird.images.main}
+                            latin={bird.name.latin}
+                            spanish={bird.name.spanish}
+                            url={"/info/".concat(bird.uid)}
                         />
-                        </div>
-                        ))
-                    }
+                    </div>
+                ))
+            }
         </section>
     </Hero>
 </Site>
