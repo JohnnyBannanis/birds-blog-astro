@@ -1,5 +1,5 @@
 ---
-import BirdInfo from "../../components/BirdInfo.astro";
+import BirdInfo from "../../components/info/BirdInfo.astro";
 import Hero from "../../components/Hero.astro";
 import Navbar from "../../components/Navbar.astro";
 import Site from "../../layouts/Site.astro";
@@ -11,22 +11,19 @@ export async function getStaticPaths() {
         data.map(elem => ( 
             {
                 params:{bird:elem.uid}, 
-                props:{name:elem.name.spanish, img:elem.images.main, url:elem._links.self}
+                props:{name:elem.name.spanish, url:elem._links.self}
             }
         ))
     ) 
 }
 
 const { bird } = Astro.params;
-const { name, img, url} = Astro.props;
+const { name, url} = Astro.props;
 ---
 <Site title={name}>
     <div class="flex flex-col h-screen">
-
         <Navbar current="birds"></Navbar>
         <Hero>
-            <h1>pagina pajaro {name}</h1>
-            <img src={img} alt="">
             <BirdInfo url={url}></BirdInfo>
         </Hero>
     </div>

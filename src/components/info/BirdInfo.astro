@@ -1,0 +1,25 @@
+---
+import Stats from './Stats.astro';
+
+interface Props{
+    url:string
+}
+const {url} = Astro.props;
+
+const response = await fetch(url);
+const data = await response.json();
+---
+
+<div class="m-4">
+    <h1>nombre : {data.name.spanish}</h1>
+    <h1>nombre : {data.name.latin}</h1>
+    <h1>nombre : {data.name.english}</h1>
+    <img class="rounded-lg lg:hidden" src={data.images.main} alt={data.name.spanish}>
+    <p>hab : {data.habitat}</p>
+    <Stats  order={data.order} 
+            size={data.size} 
+            species={data.species}/>
+    <h1>wea : {data.map.title}</h1>
+    <img src={data.map.image} alt="">
+    <p>fact : {data.didyouknow}</p>
+</div>

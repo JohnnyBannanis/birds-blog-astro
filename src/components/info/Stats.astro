@@ -1,0 +1,27 @@
+---
+interface Props{
+    order:string,
+    species:string,
+    size:string
+}
+
+const {order,species,size} = Astro.props
+---
+<div class="stats shadow stats-vertical md:stats-horizontal">
+    
+    <div class="stat place-items-center">
+      <div class="stat-title">Especie:</div>
+      <div class="stat-value text-3xl">{species}</div>
+    </div>
+    
+    <div class="stat place-items-center">
+      <div class="stat-title">Orden:</div>
+      <div class="stat-value text-3xl">{order}</div>
+    </div>
+    
+    <div class="stat place-items-center">
+      <div class="stat-title">Tamaño:</div>
+      <div class="stat-value text-3xl">{size}</div>
+    </div>
+    
+</div>

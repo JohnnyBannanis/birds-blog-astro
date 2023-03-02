@@ -1,28 +1,31 @@
 ---
-
 ---
 <div class="grid md:grid-cols-5 h-full">
     <div class="col-span-2 hero-content flex-col md:items-end ml-8">
         <h1 class="md:uppercase md:text-right text-7xl">Aves de Chile</h1>
         <p class="md:text-right text-lg">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero voluptatem libero dignissimos, asperiores a exercitationem fuga ex quia reiciendis minus maiores voluptates quos suscipit blanditiis, laudantium incidunt ea nam perspiciatis?</p>
 		<a href="/birds"> 
-            <button class="btn btn-primary">Descubre las Aves</button>
+            <button class="btn btn-outline border-4 border-primary hover:bg-primary hover:border-primary ">Descubre las Aves</button>
         </a>
     </div>
-    <div class="hidden md:block col-span-3 m-4">
-        <img id="landingIMG" class="mask mask-half-1 mask-custom rounded-lg h-full" src="/Aguila-JorgedelaTorre.jpg" alt="Aguila chilena - Jorge de la Torre">
+    <div class="hidden md:block col-span-3">
+        <img id="landingIMG" class="mask mask-half-1 mask-custom rounded-lg h-full transition-opacity " src="/landing/loica.jpg">
     </div>
 </div>
 
 <script>
     //mask-parallelogram
     document.addEventListener("DOMContentLoaded", () => {
-        const img = document.getElementById("landingIMG")
-        //setInterval(scrollPic,2500)
+        const img = document.getElementById("landingIMG");
+        let counter = 0;
+        
+        const scrollPic = () => {
+            const picArray = ["/landing/aguila.jpg","/landing/tucuquere.jpg","/landing/tricahue.jpg","/landing/loica.jpg"];
+            img.src = picArray[counter%picArray.length];
+            counter++;
+        };
+        setInterval(scrollPic,3000)
     });
-    const scrollPic = () => {
-        console.log("AAA")
-    };
 </script>
     
 <style>
