@@ -1,0 +1,22 @@
+---
+interface Props{
+    audio:string
+}
+const {audio} = Astro.props
+const classNames = audio===undefined ? "mt-4 hidden":"mt-4" 
+
+---
+<div class={classNames}>
+    <figure>
+        <audio
+            controls
+            src={audio}>
+        </audio>
+    </figure>
+</div>
+
+<style>
+    audio::-webkit-media-controls-panel {
+        background-color: hsl(var(--p));
+    }
+</style>
