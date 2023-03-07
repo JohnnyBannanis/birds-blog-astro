@@ -9,22 +9,26 @@
         </a>
     </div>
     <div class="hidden md:block col-span-3">
-        <img id="landingIMG" class="mask mask-half-1 mask-custom rounded-lg h-full transition-opacity " src="/landing/loica.jpg">
+        <img id="landingIMG" class="mask mask-half-1 mask-custom rounded-lg h-full transition-opacity " src="">
     </div>
 </div>
 
 <script>
-    //mask-parallelogram
+    import aguila from "../assets/img/landing/aguila.jpg"
+    import loica from "../assets/img/landing/loica.jpg"
+    import tucuquere from "../assets/img/landing/tucuquere.jpg"
+    const picArray = [aguila,loica,tucuquere];
+
     document.addEventListener("DOMContentLoaded", () => {
         const img = document.getElementById("landingIMG");
+        img.src = picArray[Math.floor(Math.random()*picArray.length)];
         let counter = 0;
         
         const scrollPic = () => {
-            const picArray = ["/landing/aguila.jpg","/landing/tucuquere.jpg","/landing/tricahue.jpg","/landing/loica.jpg"];
             img.src = picArray[counter%picArray.length];
             counter++;
         };
-        setInterval(scrollPic,3000)
+        setInterval(scrollPic,10000)
     });
 </script>
     
