@@ -9,7 +9,7 @@ interface Props{
 const {img, spanish, latin, english, url} = Astro.props
 ---
 <a href={url}>
-    <div class="flex flex-row rounded-lg bg-base-100 hover:ring-inset hover:ring-4 hover:ring-primary min-h-full">
+    <div class="flex flex-row rounded-lg bg-base-100 hover:ring-inset hover:ring-4 hover:ring-primary min-h-full active:bg-primary transform duration-100 active:scale-95">
         <div class="m-2 avatar">
             <div class="w-36 lg:w-40 xl:w-48 rounded-lg">
               <img class="object-cover min-h-full w-full " src={img} alt={latin}/>

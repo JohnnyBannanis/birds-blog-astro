@@ -44,12 +44,12 @@ const {current} = Astro.props
         </div>
     </div>
     <div class="hidden md:hidden w-full mt-4" id="navbar-hamburger">
-        <ul class="collapse flex flex-col menu rounded-box">
+        <ul class="flex flex-col menu rounded-box">
             <li><a id="home-m" class="" href="/">Inicio</a></li>
             <li><a id="birds-m" class="" href="/birds">Aves</a></li>
             <li><a id="about-m" class="" href="">About</a></li>
         </ul>
-      </div>
+    </div>
 </section>
 
 <script>
@@ -58,6 +58,7 @@ const {current} = Astro.props
         const themeSwitch = document.getElementById("theme")
         const navHamburger = document.getElementById("navbar-hamburger")
         const menuHamToggle = document.getElementById("hamburger")
+        
         
         //current page indicator
         const tab = document.getElementById(nav.dataset.current)
@@ -89,10 +90,10 @@ const {current} = Astro.props
         //show/hide vertilal menu
         menuHamToggle.checked = false;
         menuHamToggle.addEventListener("click", ()=>{
-            if(!menuHamToggle.checked){
-                navHamburger.classList.add("hidden")
-            }else{
+            if(menuHamToggle.checked){
                 navHamburger.classList.remove("hidden")
+            }else{
+                navHamburger.classList.add("hidden")
             }
         })
     });
