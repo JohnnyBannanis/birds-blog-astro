@@ -56,13 +56,14 @@ const data = birds[url].data;
         content={data.description}
     />
     <Paragraph 
+        content={data.didyouknow}
+        bg="bg-base-100"
+    />
+    <Paragraph 
         content={data.habitat}
     />
     <Paragraph 
         content={data.iucn}
-    />
-    <Paragraph 
-        content={data.didyouknow}
     />
     <Map 
         title={data.info.geo.value}
