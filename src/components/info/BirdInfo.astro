@@ -11,52 +11,63 @@ interface Props{
 }
 const {url} = Astro.props;
 
-const response = await fetch(url);
-const data = await response.json();
+// switched to local json
+//const response = await fetch(url);
+//const data = await response.json();
+import birds from "../../assets/data/birds-full.json";
+const data = birds[url].data;
+//console.log(data)
 ---
 
 <div class="my-4 mx-8 selection:bg-primary">
     <div class="flex flex-col md:flex-row items-center justify-center my-4">
         <div class="md:order-3">
             <Title 
-            spanish={data.name.spanish}
-            latin={data.name.latin}
-            english={data.name.english}
+            spanish={data.names.spanish}
+            latin={data.names.latin}
+            english={data.names.english}
             />
             <div class="hidden md:block">
-                <AudioPlayer audio={data.audio.file}/>
+                <AudioPlayer audio={data.audio.src}/>
             </div>
         </div>
         <div class="divider divider-horizontal md:order-2"></div>
         <div>
-            <img class="rounded-lg w-96 h-96 md:order-1 drop-shadow-lg" src={data.images.main} alt={data.name.spanish}>
+            <img class="rounded-lg w-96 h-96 md:order-1 drop-shadow-lg" src={data.image.url} alt={data.names.spanish}>
         </div>
         <div class="md:hidden">    
-            <AudioPlayer audio={data.audio.file}/>
+            <AudioPlayer audio={data.audio.src}/>
         </div>
     </div>
 
-    <div class="flex flex-col items-center my-4 ">
+    <div class="flex flex-col items-center my-4 space-y-4 ">
         <Stats  
-            order={data.order} 
-            size={data.size} 
-            species={data.species}
+            field1={data.info.species} 
+            field2={data.info.order} 
+            field3={data.info.size}
         />
-        <Stats2
-            dimorphism={data.dimorphism}
-            migration={data.migration}
+        <Stats  
+            field1={data.info.migration} 
+            field2={data.info.iucn}
+            field3={data.info.dimorfism} 
         />
-
     </div>
+
+    <Paragraph 
+        content={data.description}
+    />
     <Paragraph 
         content={data.habitat}
+    />
+    <Paragraph 
+        content={data.iucn}
     />
     <Paragraph 
         content={data.didyouknow}
     />
     <Map 
-        title={data.map.title}
-        map={data.map.image}
+        title={data.info.geo.value}
+        map={data.map.svg}
     />
 
 </div>
