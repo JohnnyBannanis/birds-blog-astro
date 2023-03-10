@@ -26,7 +26,9 @@ const { name, index} = Astro.props;
     <div class="flex flex-col h-screen">
         <Navbar current="birds"></Navbar>
         <Hero>
-            <BirdInfo url={index}></BirdInfo>
+            <div class="w-full">
+                <BirdInfo url={index}></BirdInfo>
+            </div>
         </Hero>
     </div>
 </Site>

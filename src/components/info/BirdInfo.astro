@@ -1,6 +1,6 @@
 ---
 import AudioPlayer from './AudioPlayer.astro';
-import Paragraph from './Content.astro';
+import Content from './Content.astro';
 import Map from './Map.astro';
 import Stats from './Stats.astro';
 import Title from './Title.astro';
@@ -18,7 +18,7 @@ const data = birds[url].data;
 //console.log(data)
 ---
 
-<div class="my-4 mx-8 selection:bg-primary">
+<div class="my-4 mx-4 selection:bg-primary">
     <div class="flex flex-col md:flex-row items-center justify-center my-4">
         <div class="md:order-3">
             <Title 
@@ -52,22 +52,24 @@ const data = birds[url].data;
         />
     </div>
 
-    <Paragraph 
+    <div class="flex flex-col items-center my-4 space-y-4 ">
+        <Content 
         content={data.description}
-    />
-    <Paragraph 
+        />
+        <Content 
         content={data.didyouknow}
         bg="bg-base-100"
-    />
-    <Paragraph 
+        />
+        <Content 
         content={data.habitat}
-    />
-    <Paragraph 
+        />
+        <Content 
         content={data.iucn}
-    />
+        />
+    </div>
+
     <Map 
         title={data.info.geo.value}
         map={data.map.svg}
     />
-
 </div>
