@@ -16,7 +16,7 @@ const {field1,field2,field3} = Astro.props
   {field2 ?
     <div class="stat place-items-center">
       <div class="stat-title">{field2.name}</div>
-      <div class="stat-value text-3xl">{field2.value}</div>
+      <p class="stat-value whitespace-normal text-3xl">{field2.value}</p>
     </div> 
     : 
     <div/>
@@ -24,6 +24,6 @@ const {field1,field2,field3} = Astro.props
 
   <div class="stat place-items-center">
     <div class="stat-title">{field3.name}</div>
-    <div class="stat-value text-3xl">{field3.value}</div>
+    <div class="stat-value center text-3xl">{field3.value}</div>
   </div>
 </div>
