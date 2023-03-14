@@ -1,0 +1,37 @@
+---
+import Card from "../components/Card.astro";
+import Hero from "../components/Hero.astro";
+import Navbar from "../components/Navbar.astro";
+import Site from "../layouts/Site.astro";
+
+//astro top-level await
+
+//const response = await fetch("https://aves.ninjas.cl/api/birds");
+//const data = await response.json();
+
+//switched to local data json.
+import birds from "../assets/data/birds-full-ssh.json";
+---
+
+<Site title="Birds Blog | Birds">
+    <Navbar current="birds" />
+    <Hero>
+        <section
+            class="my-4 min-[450px]:mx-4 grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 place-items-stretch"
+        >
+            {
+                birds.map((bird) => (
+                    <div class="col-span-1">
+                        <Card
+                            english={bird.data.names.english}
+                            img={bird.data.image.url}
+                            latin={bird.data.names.latin}
+                            spanish={bird.data.names.spanish}
+                            url={"/birds-blog-astro/info/".concat(bird.data.uid)}
+                        />
+                    </div>
+                ))
+            }
+        </section>
+    </Hero>
+</Site>
