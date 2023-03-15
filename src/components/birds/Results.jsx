@@ -31,11 +31,20 @@ function Results({ searchList }) {
 
     return (
         <div className="flex flex-col items-center mt-4 w-full">
-            <Searchbar query={query} handleImput={handleImput}/>
+            <div 
+                className='
+                    grid 
+                    place-self-stretch 
+                    mx-4 
+                    lg:grid-cols-4'>
+                <Searchbar query={query} handleImput={handleImput}/>
+
+            </div>
             <section className="my-4 min-[450px]:mx-4 grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 place-items-stretch">
                 {query.length === 0 && (
-                    searchList.map((bird) => (
-                        <Card 
+                    searchList.map((bird,index) => (
+                        <Card
+                            key={index}
                             uid={bird.data.uid} 
                             latin={bird.data.names.latin} 
                             image={bird.data.image.url} 
@@ -45,8 +54,9 @@ function Results({ searchList }) {
                     ))
                 )}
                 {found &&
-					found.map((bird) => (
-                        <Card 
+					found.map((bird,index) => (
+                        <Card
+                            key={index}
                             uid={bird.data.uid} 
                             latin={bird.data.names.latin} 
                             image={bird.data.image.url} 
