@@ -1,3 +1,20 @@
+<div align="center">
+
+# Birds Blog
+
+### Pruebalo online en / Try it online at [Github Pages](https://johnnybannanis.github.io/birds-blog-astro/)
+</div>
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/JohnnyBannanis/birds-blog-astro/main/public/mockup/248shots_so.png" alt="mockup"  height="350" />
+<img src="https://raw.githubusercontent.com/JohnnyBannanis/birds-blog-astro/main/public/mockup/804shots_so.png" alt="mockup"  height="350" />
+
+</div>
+
+
+
+
 # Astro Starter Kit: Minimal
 
 ```
